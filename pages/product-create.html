@@ -1,0 +1,80 @@
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+      <div class="col-first">
+        <h1>List Category</h1>
+        <nav class="d-flex align-items-center">
+          <a href="#!/home">Home<span class="lnr lnr-arrow-right"></span></a>
+          <a href="c#">Admin</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Banner Area -->
+
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="login_form_inner">
+          <h3>Add new Product</h3>
+          <form class="row login_form mw-100"  method="post" name="prdForm">
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" ng-model="productName" name="prdName"  required minlength="6" maxlength="32" placeholder="Product name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Product name'">
+            </div>
+            <div class="col-md-12" ng-if="prdForm.prdName.$touched || prdForm.prdName.$dirty" style="color: red; text-align: left; margin-left: 12px">
+              <span>{{prdForm.prdName.$error.required && 'Required'}}</span>
+              <span>{{prdForm.prdName.$error.minlength && 'At least 6 characters'}}</span>
+              <span>{{prdForm.prdName.$error.maxlength && 'Up to 32 characters'}}</span>
+            </div>
+
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" ng-model="productPrice" name="prdPrice"  required  placeholder="Price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Price name'">
+            </div>
+            <div class="col-md-12" ng-if="prdForm.prdPrice.$touched || prdForm.prdPrice.$dirty" style="color: red; text-align: left; margin-left: 12px">
+              <span>{{prdForm.prdPrice.$error.required && 'Required'}}</span>
+            </div>
+
+            <div class="col-md-12 form-group">
+              <input type="number" class="form-control" ng-model="productSale" placeholder="Sale '%'" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Sale \'%\''">
+            </div>
+
+            <div class="col-md-12 form-group">
+              <h5 class="text-left font-weight-normal" style="margin-left: 12px; color: #bbbbbb">Image</h5>
+              <input type="file" class="form-control" ng-model="image" onchange="angular.element(this).scope().onChangeImage(event)">
+            </div>
+
+            <div class="form-check form-switch text-left mx-4">
+              <input class="form-check-input" type="checkbox" id="mySwitch" ng-model="productStatus" name="darkmode" value="yes" checked>
+              <label class="form-check-label" for="mySwitch">In Stock</label>
+            </div>
+
+            <div class="col-md-12 form-group p_star">
+              <input class="form-control" type="number" list="browsers" name="browser" id="browser" ng-model="cateId">
+              <datalist id="browsers">
+                <option ng-repeat="item in categories" value="{{item.id}}">{{item.name}}</option>
+              </datalist>
+            </div>
+
+            <div class="col-md-12 form-group">
+              <textarea name="prdOver" class="form-control w-100"  ng-model="productOver" cols="30" rows="10" placeholder="Short Overview" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Short Overview'"></textarea>
+            </div>
+
+            <div class="col-md-12 form-group text-center">
+              <button type="button"  class="primary-btn" ng-disabled="prdForm.$invalid" ng-click="onSubmit()">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--================End Login Box Area =================-->
+
+
+<!-- start footer Area -->
+<ng-include src="'component/script.html'"></ng-include>

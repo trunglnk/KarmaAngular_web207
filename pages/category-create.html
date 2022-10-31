@@ -1,0 +1,58 @@
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+      <div class="col-first">
+        <h1>List Category</h1>
+        <nav class="d-flex align-items-center">
+          <a href="#!/home">Home<span class="lnr lnr-arrow-right"></span></a>
+          <a href="c#">Admin</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Banner Area -->
+
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="login_form_inner">
+          <h3>Add new Category</h3>
+          <form class="row login_form mw-100" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate" name="cateForm">
+            <div class="col-md-12 form-group">
+              <input type="text" class="form-control" ng-model="categoryName" name="cateName"  required minlength="6" maxlength="32" placeholder="Cate name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cate name'">
+            </div>
+            <div class="col-md-12" ng-if="cateForm.cateName.$touched || cateForm.cateName.$dirty" style="color: red; text-align: left; margin-left: 12px">
+              <span>{{cateForm.cateName.$error.required && 'Required'}}</span>
+              <span>{{cateForm.cateName.$error.minlength && 'At least 6 characters'}}</span>
+              <span>{{cateForm.cateName.$error.maxlength && 'Up to 32 characters'}}</span>
+            </div>
+
+            <div class="col-md-12 form-group text-left" style="margin-left: 12px">
+              <label >Date created (date and time): </label>
+              <input type="datetime-local"  ng-model="categoryDate">
+            </div>
+
+            <div class="form-check form-switch text-left mx-4">
+              <input class="form-check-input" type="checkbox" id="mySwitch" ng-model="categoryStatus" name="darkmode" value="yes" checked>
+              <label class="form-check-label" for="mySwitch">Active</label>
+            </div>
+
+            <div class="col-md-12 form-group">
+              <button type="button"  class="primary-btn" ng-disabled="cateForm.$invalid" ng-click="onSubmit()">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--================End Login Box Area =================-->
+
+
+<!-- start footer Area -->
+<ng-include src="'component/script.html'"></ng-include>

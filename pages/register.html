@@ -1,0 +1,75 @@
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Register</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="#!/home">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="c#">Register</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <img class="img-fluid" src="img/login.jpg" alt="">
+                    <div class="hover">
+                        <h4>New to our website?</h4>
+                        <p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login_form_inner">
+                    <h3>Register</h3>
+                    <form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate" name="regForm">
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="name" name="txtUser"  ng-model="user" required minlength="6" maxlength="32" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                        </div>
+                        <div class="col-md-12 mb-3" ng-if="regForm.txtUser.$touched || regForm.txtUser.$dirty" style="color: red">
+                            <span>{{regForm.txtUser.$error.required && 'Username cannot be left blank'}}</span>
+                            <span>{{regForm.txtUser.$error.minlength && 'At least 6 characters'}}</span>
+                            <span>{{regForm.txtUser.$error.maxlength && 'Up to 32 characters'}}</span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="email" class="form-control" id="email" name="txtEmail" ng-model="email" required placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                            <div class="col-md-12 mb-3" ng-if="regForm.txtEmail.$touched || regForm.txtEmail.$dirty" style="color: red">
+                                <span>{{regForm.txtEmail.$error.required && 'Email cannot be blank'}}</span><br>
+                                <span ng-show="regForm.txtEmail.$invalid" style="color: red">Email must be in the form ...@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="password" class="form-control" id="psw" name="txtPassword" ng-model="password" required minlength="8" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                        </div>
+                        <div class="col-md-12 mb-3" ng-if="regForm.txtPassword.$touched || regForm.txtPassword.$dirty" style="color: red">
+                            <span>{{regForm.txtPassword.$error.required && 'Password cannot be blank'}}</span>
+                            <span>{{regForm.txtPassword.$error.minlength && 'At least 8 characters'}}</span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="password" class="form-control" id="psw-repeat" name="txtPassword_r" ng-model="password_r" required placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+                        </div>
+                        <div class="col-md-12 mb-3" ng-if="regForm.txtPassword_r.$touched" style="color: red">
+                            <span>{{regForm.txtPassword_r.$error.required && 'Password cannot be blank'}}</span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" value="submit" class="primary-btn">Sign Up</button>
+                            <a href="#!/login">Login Now</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Login Box Area =================-->
+
+<!-- start footer Area -->
+<ng-include src="'component/script.html'"></ng-include>
